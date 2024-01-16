@@ -1,0 +1,68 @@
+#script per gnuplot
+# Parametres entrada externs
+    # Entren de la seguent manera: i es fa servir ARG0 pel nº de parametres
+    # i els altres es criden com ARG1 , ARG2, ...
+    # gnuplot -c plotFile_plantilla.gpi var1 var2 var3
+    if (ARGC == 1){
+        var1 = ARG1
+    }
+
+# Reseteja tots els parametres
+	reset
+
+# Defineix variables utils
+	pi = 3.1415927
+
+# Setejar fonts del grafic i tamany de les lletres
+	set title  font "Times:Bold, 13"
+	set xlabel font "Times     , 12"
+	set ylabel font "Times     , 12"
+	set xtics  font "Times     , 12"
+	set ytics  font "Times     , 12"
+	set key    font "Times     , 10" box lw 1 lc rgb 'grey80' opaque
+
+# Seteja la resolucio de la imatge de sortida
+	#set term pngcairo dashed size 600,300
+	set term pngcairo dashed size 600,400
+
+# Seteja la graella
+	set grid
+
+# Seteja diferents colors de linies, que es poden fer servir despres amb el codi #### que li donem (set style line ##### ...)
+ 
+	set style line 1 lc rgb "grey"       lw 3 
+	set style line 2 lc rgb "blue"  lw 3 
+	set style line 3 lc rgb "green"       lw 3 
+	set style line 4 lc rgb "red"    lw 3 
+	set style line 5 lc rgb "orange"    lw 3
+	set style line 6 lc rgb "cyan"    lw 3
+	set style line 7 lc rgb "black"    lw 3
+
+#################################
+#       Grafic 1:               #
+#################################
+	# Fa un output a la Carpeta "Graficos/Grafico_1.png", ha d'existir la carpeta
+	# Indica titol del grafic i eixos
+		set title  ""
+	# Indica el rang dels eixos
+		# Tambe podem posar set xrange[*:*] perque sigui automatic, o xrange[0:*] perque fixi nomes un rang
+		#set xrange [10000:*]
+
+	# Fa el plot de les dades.
+    	set key top left
+
+	set xrange [*:*]
+        set yrange [*:*]
+	set ylabel "Winning Probability (%)"
+	set xlabel "Points per attribute (-)"
+
+        set output "Stats.png"
+        plot "Output/StatsWinStrength.txt" u 1:2 w l ls 1 title "Strength",\
+	     "Output/StatsWinDefense.txt" u 1:2 w l ls 2 title "Defense",\
+	     "Output/StatsWinLife.txt" u 1:2 w l ls 3 title "Life",\
+	     "Output/StatsWinCrit.txt" u 1:2 w l ls 4 title "Crit",\
+	     "Output/StatsWinAccuracy.txt" u 1:2 w l ls 5 title "Accuracy",\
+	     "Output/StatsWinEvasion.txt" u 1:2 w l ls 6 title "Evasion",\
+	     "Output/StatsWinTot.txt" u 1:2 w l ls 7 title "Uniform",\
+
+		     
