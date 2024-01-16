@@ -104,16 +104,16 @@ double figth(WarBot warbot1, WarBot warbot2)
 		while (salud1>=0 and salud2>=0)
 		{
 			
-		    // Obtener un número aleatorio en el rango [0, 2000]
+		    // Obtener un nÃºmero aleatorio en el rango [0, 2000]
 		    int randomNumber = std::rand() % 2001;
-		    // Convertir el número a un valor decimal en el rango [0.0, 1.0]
+		    // Convertir el nÃºmero a un valor decimal en el rango [0.0, 1.0]
 		    double randomDecimal = static_cast<double>(randomNumber) / 2000.0;
-		    // Ajustar el rango para que esté en [0.9, 1.1]
+		    // Ajustar el rango para que estÃ© en [0.9, 1.1]
 		    double random1 = 0.9 + 0.2 * randomDecimal;
 		    double random2 = 0.9 + 0.2 * randomDecimal;
 		    
 		    // Imprimir el resultado
-		    //std::cout << "Número aleatorio en el rango [0.9, 1.1]: " << random1 << " y " << random2 << std::endl;
+		    //std::cout << "NÃºmero aleatorio en el rango [0.9, 1.1]: " << random1 << " y " << random2 << std::endl;
 
 			double attack1 = strength1 * random1;
 			double attack2 = strength2 * random2;
@@ -140,7 +140,7 @@ double figth(WarBot warbot1, WarBot warbot2)
 			int numeroAleatorio2 = std::rand() % 100 + 1;
 			int numeroAleatorio3 = std::rand() % 100 + 1;
 			int numeroAleatorio4 = std::rand() % 100 + 1;
-    		//std::cout << "Número aleatorio en el rango [1, 100]: " << numeroAleatorio1 << " " << numeroAleatorio2 << " " << numeroAleatorio3 << " " << numeroAleatorio4 << std::endl;
+    		//std::cout << "NÃºmero aleatorio en el rango [1, 100]: " << numeroAleatorio1 << " " << numeroAleatorio2 << " " << numeroAleatorio3 << " " << numeroAleatorio4 << std::endl;
     		
     		
     		// Start figth!
@@ -389,9 +389,7 @@ parametric(WarBot warbot1, WarBot warbot2, string variable)
 }
 
 int main()
-{
-	cout << "funciona " << endl;
-	
+{	
 	WarBot warbot1;
 	WarBot warbot2;
 	
@@ -411,6 +409,6 @@ int main()
 	parametric(warbot1, warbot2, "Accuracy");
 	parametric(warbot1, warbot2, "Evasion");
 	*/
-	parametric(warbot1, warbot2, "Tot");
+	//parametric(warbot1, warbot2, "Tot");
 	
 }
